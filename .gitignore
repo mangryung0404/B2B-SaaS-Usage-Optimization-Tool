@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.env
+
+# Firebase specific
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+
+# VS Code
+.vscode/
+
+# Ignore sensitive database/stripe configurations
+prisma/schema.prisma
