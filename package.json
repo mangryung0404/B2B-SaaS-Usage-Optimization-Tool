@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "wrangler dev",
-    "build": "esbuild src/index.ts --bundle --outfile=dist/_worker.js --format=esm --target=es2022",
+    "build": "esbuild src/index.ts --bundle --outfile=dist/_worker.js --format=esm --target=es2022 && node -e \"require('fs').copyFileSync('public/_routes.json', 'dist/_routes.json')\"",
     "deploy": "wrangler deploy",
     "start": "node dist/index.js",
     "db:generate": "prisma generate",
