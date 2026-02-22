@@ -1,4 +1,6 @@
+// @ts-ignore
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+// @ts-ignore
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 import Stripe from 'stripe';

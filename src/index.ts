@@ -1,3 +1,4 @@
+import * as functions from 'firebase-functions';
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -29,6 +30,12 @@ app.get('/health', (req: Request, res: Response) => {
 // 향후 MCP 및 비즈니스 라우터 연결 영역
 // app.use('/api/...', ...);
 
-app.listen(port, () => {
-    console.log(`[server]: Server is running at http://localhost:${port}`);
-});
+// 로컬 환경 구동 시에만 포트 리스닝 작동 (Firebase Functions 에서는 미사용)
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(port, () => {
+        console.log(`[server]: Local API Server is running at http://localhost:${port}`);
+    });
+}
+
+// REST API 전체를 Firebase Functions HTTPS 콜로 래핑하여 추출
+export const api = functions.https.onRequest(app);
