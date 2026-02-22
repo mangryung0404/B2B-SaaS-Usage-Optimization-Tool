@@ -1,9 +1,10 @@
 name = "b2b-saas-optimization-tool"
-main = "src/index.ts"
 compatibility_date = "2024-02-22"
 
 # Node.js 호환 모드 (Stripe, Prisma 등의 원활한 지원)
 compatibility_flags = ["nodejs_compat"]
+
+pages_build_output_dir = "dist"
 
 [observability]
 enabled = true
